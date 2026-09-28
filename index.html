@@ -239,6 +239,57 @@
 
 
         /* =========================================
+           SEARCH MODE TOGGLE
+        ========================================= */
+
+        .mode-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+
+            margin-bottom: 28px;
+        }
+
+        .mode-btn {
+            padding: 8px 18px;
+
+            border: 1px solid var(--border);
+
+            background: rgba(255, 255, 255, 0.7);
+
+            color: var(--muted);
+
+            border-radius: 16px;
+
+            font-family: inherit;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: all 0.2s ease;
+        }
+
+        .mode-btn.active {
+            background: var(--blue);
+
+            color: white;
+
+            border-color: var(--blue);
+        }
+
+        .mode-btn:hover:not(.active) {
+            background: white;
+
+            border-color: #c9d3df;
+
+            color: var(--blue);
+        }
+
+
+        /* =========================================
            SEARCH
         ========================================= */
 
@@ -248,8 +299,9 @@
             margin: 0 auto;
         }
 
+        /* Manual Mode */
         .search-box {
-            display: flex;
+            display: none;
             align-items: center;
 
             padding: 8px;
@@ -266,6 +318,10 @@
                 border-color 0.2s ease,
                 box-shadow 0.2s ease,
                 transform 0.2s ease;
+        }
+
+        .search-box.active {
+            display: flex;
         }
 
         .search-box:focus-within {
@@ -344,13 +400,17 @@
         }
 
         .search-hints {
-            display: flex;
+            display: none;
             justify-content: center;
             flex-wrap: wrap;
 
             gap: 8px;
 
             margin-top: 15px;
+        }
+
+        .search-hints.active {
+            display: flex;
         }
 
         .hint {
@@ -378,6 +438,226 @@
             border-color: #c9d3df;
 
             color: var(--blue);
+        }
+
+
+        /* =========================================
+           EASY INPUT MODE
+        ========================================= */
+
+        .easy-input-container {
+            display: none;
+        }
+
+        .easy-input-container.active {
+            display: block;
+        }
+
+        .easy-input-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr auto;
+            gap: 12px;
+
+            margin-bottom: 20px;
+        }
+
+        .easy-input-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .easy-input-label {
+            font-size: 12px;
+
+            font-weight: 700;
+
+            color: var(--blue);
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.04em;
+
+            margin-bottom: 7px;
+        }
+
+        .easy-input-desc {
+            font-size: 11px;
+
+            color: var(--muted);
+
+            margin-top: 2px;
+
+            line-height: 1.4;
+        }
+
+        .easy-input-select,
+        .easy-input-number {
+            padding: 11px 14px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 12px;
+
+            background: white;
+
+            color: var(--text);
+
+            font-family: inherit;
+
+            font-size: 14px;
+
+            cursor: pointer;
+
+            transition: all 0.2s ease;
+        }
+
+        .easy-input-select:focus,
+        .easy-input-number:focus {
+            outline: 0;
+
+            border-color: rgba(21, 60, 107, 0.35);
+
+            box-shadow: 0 0 0 3px rgba(21, 60, 107, 0.06);
+        }
+
+        .easy-input-select:hover,
+        .easy-input-number:hover {
+            border-color: #c9d3df;
+        }
+
+        .easy-input-number {
+            cursor: text;
+        }
+
+        .easy-input-button {
+            align-self: flex-end;
+
+            height: 48px;
+
+            padding: 0 24px;
+
+            border: 0;
+            border-radius: 12px;
+
+            background: var(--blue);
+            color: white;
+
+            font-family: inherit;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition:
+                background 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .easy-input-button:hover {
+            background: var(--blue-dark);
+
+            transform: translateY(-1px);
+        }
+
+        .easy-input-dropdown {
+            position: relative;
+        }
+
+        .easy-select-search {
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            z-index: 10;
+
+            display: none;
+        }
+
+        .easy-select-search.active {
+            display: block;
+        }
+
+        .easy-select-search input {
+            width: 100%;
+
+            padding: 11px 14px;
+
+            border: 1px solid rgba(21, 60, 107, 0.35);
+
+            border-radius: 12px;
+
+            font-family: inherit;
+
+            font-size: 14px;
+
+            box-shadow: 0 0 0 3px rgba(21, 60, 107, 0.06);
+        }
+
+        .easy-select-search input:focus {
+            outline: 0;
+        }
+
+        .easy-select-list {
+            position: absolute;
+
+            top: 52px;
+
+            left: 0;
+
+            width: 100%;
+
+            max-height: 240px;
+
+            overflow-y: auto;
+
+            background: white;
+
+            border: 1px solid var(--border);
+
+            border-radius: 12px;
+
+            box-shadow: 0 8px 25px rgba(21, 60, 107, 0.12);
+
+            display: none;
+
+            z-index: 11;
+        }
+
+        .easy-select-list.active {
+            display: block;
+        }
+
+        .easy-select-option {
+            padding: 11px 14px;
+
+            cursor: pointer;
+
+            transition: all 0.15s ease;
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        .easy-select-option:last-child {
+            border-bottom: none;
+        }
+
+        .easy-select-option:hover {
+            background: var(--blue-light);
+
+            color: var(--blue);
+        }
+
+        .easy-select-option.selected {
+            background: var(--blue);
+
+            color: white;
+
+            font-weight: 600;
         }
 
 
@@ -770,6 +1050,14 @@
                 padding: 0 16px;
             }
 
+            .easy-input-form {
+                grid-template-columns: 1fr;
+            }
+
+            .easy-input-button {
+                align-self: auto;
+            }
+
             .info-grid {
                 grid-template-columns: 1fr;
             }
@@ -808,6 +1096,21 @@
 
             .brand-subtitle {
                 display: none;
+            }
+
+            .easy-input-form {
+                grid-template-columns: 1fr;
+            }
+
+            .easy-input-label {
+                font-size: 11px;
+            }
+
+            .easy-input-select,
+            .easy-input-number {
+                font-size: 13px;
+
+                padding: 10px 12px;
             }
         }
     </style>
@@ -895,8 +1198,25 @@
 
             <div class="search-wrapper">
 
+                <!-- MODE TOGGLE -->
+
+                <div class="mode-toggle">
+
+                    <button class="mode-btn active" data-mode="easy">
+                        Makkelijk
+                    </button>
+
+                    <button class="mode-btn" data-mode="manual">
+                        Handmatig
+                    </button>
+
+                </div>
+
+
+                <!-- MANUAL MODE FORM -->
+
                 <form
-                    class="search-box"
+                    class="search-box active"
                     id="searchForm"
                 >
 
@@ -948,9 +1268,57 @@
                 </form>
 
 
-                <!-- VOORBEELDEN -->
+                <!-- EASY INPUT MODE FORM -->
 
-                <div class="search-hints">
+                <div class="easy-input-container">
+
+                    <form class="easy-input-form" id="easyInputForm">
+
+                        <!-- BOOK SELECT -->
+                        <div class="easy-input-group">
+                            <label class="easy-input-label">Bijbelboek</label>
+                            <div class="easy-input-dropdown">
+                                <select class="easy-input-select" id="bookSelect" aria-label="Kies een Bijbelboek">
+                                    <option value="">Kies boek...</option>
+                                </select>
+                                <div class="easy-select-search">
+                                    <input type="text" class="easy-book-search" placeholder="Zoek boek...">
+                                    <div class="easy-select-list easy-book-list"></div>
+                                </div>
+                            </div>
+                            <div class="easy-input-desc">Bijv. Johannes, Paulus</div>
+                        </div>
+
+
+                        <!-- CHAPTER INPUT -->
+                        <div class="easy-input-group">
+                            <label class="easy-input-label">Hoofdstuk</label>
+                            <input type="number" class="easy-input-number" id="chapterInput" min="1" placeholder="Bijv. 3" aria-label="Voer het hoofdstuknummer in">
+                            <div class="easy-input-desc">Alleen getal (bijv. 3)</div>
+                        </div>
+
+
+                        <!-- VERSE INPUT -->
+                        <div class="easy-input-group">
+                            <label class="easy-input-label">Vers (optioneel)</label>
+                            <input type="text" class="easy-input-number" id="verseInput" placeholder="Bijv. 16 of 1-20" aria-label="Voer versnummer in (optioneel)">
+                            <div class="easy-input-desc">Één vers of bereik (1-20)</div>
+                        </div>
+
+
+                        <!-- SEARCH BUTTON -->
+                        <button class="easy-input-button" type="submit">
+                            Zoeken
+                        </button>
+
+                    </form>
+
+                </div>
+
+
+                <!-- VOORBEELDEN (MANUAL MODE) -->
+
+                <div class="search-hints active">
 
                     <button
                         class="hint"
@@ -997,126 +1365,74 @@
 
         <section class="results-section">
 
-            <div
-                class="results-header"
-                id="resultsHeader"
-            >
+            <div class="results-header" id="resultsHeader">
 
-                <h2 class="results-title">
-                    Zoekresultaat
-                </h2>
+                <div>
 
-                <span
-                    class="results-count"
-                    id="resultsCount"
-                ></span>
+                    <h2 class="results-title">Resultaten</h2>
 
-            </div>
+                    <span class="results-count" id="resultsCount"></span>
 
-
-            <div id="results"></div>
-
-
-            <!-- GEEN RESULTAAT -->
-
-            <div
-                class="empty-state"
-                id="emptyState"
-            >
-
-                <div class="empty-icon">
-                    ?
                 </div>
 
+            </div>
 
-                <strong>
-                    Geen Bijbelverwijzing gevonden
-                </strong>
+            <div class="empty-state" id="emptyState">
 
+                <div class="empty-icon">
+                    📖
+                </div>
 
-                <p>
+                <strong>Geen resultaten gevonden</strong>
 
-                    Probeer bijvoorbeeld
-                    <b>Johannes 3:16</b>,
-                    <b>Marcus 5:1-20</b>
-                    of <b>Psalm 23</b>.
-
-                </p>
+                <p>Controleer uw zoekopdracht en probeer opnieuw.</p>
 
             </div>
+
+            <div id="results"></div>
 
         </section>
 
 
-
-        <!-- =========================================
-             UITLEG
-        ========================================== -->
+        <!-- INFO CARDS -->
 
         <section class="info-grid">
 
             <div class="info-card">
 
-                <div class="info-number">
-                    01
-                </div>
+                <div class="info-number">1</div>
 
-
-                <h2>
-                    Zoeken
-                </h2>
-
+                <h2>Zoek snel</h2>
 
                 <p>
-
-                    Geef een Bijbelboek, hoofdstuk en eventueel
-                    verzen in. Zowel namen als afkortingen
-                    worden herkend.
-
+                    Typ eenvoudig de naam van een Bijbelboek in
+                    en het hoofdstuk. Klaar!
                 </p>
 
             </div>
 
-
             <div class="info-card">
 
-                <div class="info-number">
-                    02
-                </div>
+                <div class="info-number">2</div>
 
-
-                <h2>
-                    Kiezen
-                </h2>
-
+                <h2>Direct naar Bible.com</h2>
 
                 <p>
-
-                    Je krijgt een duidelijk resultaat met de
-                    Bijbelverwijzing die je hebt ingevoerd.
-
+                    Je bent direct op Bible.com waar je de
+                    volledige tekst kunt lezen.
                 </p>
 
             </div>
 
-
             <div class="info-card">
 
-                <div class="info-number">
-                    03
-                </div>
+                <div class="info-number">3</div>
 
-
-                <h2>
-                    Lezen
-                </h2>
-
+                <h2>Alles wat je nodig hebt</h2>
 
                 <p>
-
-                    Klik op het resultaat en je wordt rechtstreeks
-                    doorgestuurd naar Bible.com.
-
+                    Van Genesis tot Openbaring. Alle boeken
+                    van de Bijbel beschikbaar.
                 </p>
 
             </div>
@@ -1124,7 +1440,6 @@
         </section>
 
     </main>
-
 
 
     <!-- =========================================
@@ -1136,23 +1451,12 @@
         <div class="footer-inner">
 
             <p>
-                Bijbelzoeker · SJB
+                Bijbelzoeker is een snelle manier om Bijbelverwijzingen te vinden op
+                <a class="bible-link" href="https://www.bible.com" target="_blank">Bible.com</a>
             </p>
 
-
             <p>
-
-                Teksten worden geopend via
-
-                <a
-                    class="bible-link"
-                    href="https://www.bible.com/nl/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Bible.com
-                </a>
-
+                Geinspireerd door <strong>Sint-Jan Berchmans</strong> 🙏
             </p>
 
         </div>
@@ -1160,972 +1464,271 @@
     </footer>
 
 
-
-    <script>
-
-        /*
-         * =====================================================
-         * BIJBELBOEKEN
-         * =====================================================
-         */
-
-        const boeken = {
-
-            /* -------------------------
-               OUDE TESTAMENT
-            ------------------------- */
-
-            "genesis": "GEN",
-            "gen": "GEN",
-
-            "exodus": "EXO",
-            "exo": "EXO",
-
-            "leviticus": "LEV",
-            "lev": "LEV",
-
-            "numeri": "NUM",
-            "num": "NUM",
-
-            "deuteronomium": "DEU",
-            "deut": "DEU",
-            "deu": "DEU",
-
-            "josua": "JOS",
-            "joshua": "JOS",
-            "jos": "JOS",
-
-            "rechters": "JDG",
-            "rech": "JDG",
-            "jdg": "JDG",
-
-            "ruth": "RUT",
-            "rut": "RUT",
-
-            "1samuel": "1SA",
-            "1sam": "1SA",
-            "1sa": "1SA",
-
-            "2samuel": "2SA",
-            "2sam": "2SA",
-            "2sa": "2SA",
-
-            "1koningen": "1KI",
-            "1kon": "1KI",
-            "1ki": "1KI",
-
-            "2koningen": "2KI",
-            "2kon": "2KI",
-            "2ki": "2KI",
-
-            "1kronieken": "1CH",
-            "1kron": "1CH",
-            "1chr": "1CH",
-            "1ch": "1CH",
-
-            "2kronieken": "2CH",
-            "2kron": "2CH",
-            "2chr": "2CH",
-            "2ch": "2CH",
-
-            "ezra": "EZR",
-            "ezr": "EZR",
-
-            "nehemia": "NEH",
-            "neh": "NEH",
-
-            "ester": "EST",
-            "est": "EST",
-
-            "job": "JOB",
-
-            "psalmen": "PSA",
-            "psalm": "PSA",
-            "ps": "PSA",
-            "psa": "PSA",
-
-            "spreuken": "PRO",
-            "spr": "PRO",
-            "pro": "PRO",
-
-            "prediker": "ECC",
-            "pred": "ECC",
-            "ecc": "ECC",
-
-            "hooglied": "SNG",
-            "sng": "SNG",
-
-            "jesaja": "ISA",
-            "jes": "ISA",
-            "isa": "ISA",
-
-            "jeremia": "JER",
-            "jer": "JER",
-
-            "klaagliederen": "LAM",
-            "klaaglied": "LAM",
-            "lam": "LAM",
-
-            "ezechiel": "EZK",
-            "ezechiël": "EZK",
-            "ezekiel": "EZK",
-            "ezk": "EZK",
-
-            "daniel": "DAN",
-            "daniël": "DAN",
-            "dan": "DAN",
-
-            "hosea": "HOS",
-            "hos": "HOS",
-
-            "joel": "JOL",
-            "joël": "JOL",
-            "jol": "JOL",
-
-            "amos": "AMO",
-            "amo": "AMO",
-
-            "obadja": "OBA",
-            "obad": "OBA",
-            "oba": "OBA",
-
-            "jona": "JON",
-            "jon": "JON",
-
-            "micha": "MIC",
-            "mic": "MIC",
-
-            "nahum": "NAM",
-            "nah": "NAM",
-            "nam": "NAM",
-
-            "habakuk": "HAB",
-            "hab": "HAB",
-
-            "zefanja": "ZEP",
-            "zef": "ZEP",
-            "zep": "ZEP",
-
-            "haggai": "HAG",
-            "hag": "HAG",
-
-            "zacharia": "ZEC",
-            "zach": "ZEC",
-            "zec": "ZEC",
-
-            "maleachi": "MAL",
-            "mal": "MAL",
-
-
-            /* -------------------------
-               NIEUWE TESTAMENT
-            ------------------------- */
-
-            "matteus": "MAT",
-            "matteüs": "MAT",
-            "mattheus": "MAT",
-            "mattheüs": "MAT",
-            "mat": "MAT",
-            "mt": "MAT",
-
-            "marcus": "MRK",
-            "marc": "MRK",
-            "markus": "MRK",
-            "mrk": "MRK",
-            "mk": "MRK",
-
-            "lucas": "LUK",
-            "lukas": "LUK",
-            "luk": "LUK",
-            "lc": "LUK",
-
-            "johannes": "JHN",
-            "joh": "JHN",
-            "jhn": "JHN",
-
-            "handelingen": "ACT",
-            "hand": "ACT",
-            "act": "ACT",
-
-            "romeinen": "ROM",
-            "rom": "ROM",
-
-            "1korintiers": "1CO",
-            "1korintiërs": "1CO",
-            "1kor": "1CO",
-            "1co": "1CO",
-
-            "2korintiers": "2CO",
-            "2korintiërs": "2CO",
-            "2kor": "2CO",
-            "2co": "2CO",
-
-            "galaten": "GAL",
-            "gal": "GAL",
-
-            "efeziers": "EPH",
-            "efeziërs": "EPH",
-            "efezers": "EPH",
-            "ef": "EPH",
-            "eph": "EPH",
-
-            "filippenzen": "PHP",
-            "fil": "PHP",
-            "php": "PHP",
-
-            "kolossenzen": "COL",
-            "kol": "COL",
-            "col": "COL",
-
-            "1tessalonicenzen": "1TH",
-            "1tessalonicen": "1TH",
-            "1tess": "1TH",
-            "1th": "1TH",
-
-            "2tessalonicenzen": "2TH",
-            "2tess": "2TH",
-            "2th": "2TH",
-
-            "1timoteus": "1TI",
-            "1timoteüs": "1TI",
-            "1tim": "1TI",
-            "1ti": "1TI",
-
-            "2timoteus": "2TI",
-            "2timoteüs": "2TI",
-            "2tim": "2TI",
-            "2ti": "2TI",
-
-            "titus": "TIT",
-            "tit": "TIT",
-
-            "filemon": "PHM",
-            "film": "PHM",
-            "phm": "PHM",
-
-            "hebreeen": "HEB",
-            "hebreeën": "HEB",
-            "heb": "HEB",
-
-            "jakobus": "JAS",
-            "jak": "JAS",
-            "jas": "JAS",
-
-            "1petrus": "1PE",
-            "1pet": "1PE",
-            "1pe": "1PE",
-
-            "2petrus": "2PE",
-            "2pet": "2PE",
-            "2pe": "2PE",
-
-            "1johannes": "1JN",
-            "1joh": "1JN",
-            "1jn": "1JN",
-
-            "2johannes": "2JN",
-            "2joh": "2JN",
-            "2jn": "2JN",
-
-            "3johannes": "3JN",
-            "3joh": "3JN",
-            "3jn": "3JN",
-
-            "judas": "JUD",
-            "jud": "JUD",
-
-            "openbaring": "REV",
-            "openb": "REV",
-            "op": "REV",
-            "rev": "REV"
-        };
-
-
-        /*
-         * =====================================================
-         * MOOIE NAMEN VOOR DE RESULTATEN
-         * =====================================================
-         */
-
-        const boekNamen = {
-
-            "GEN": "Genesis",
-            "EXO": "Exodus",
-            "LEV": "Leviticus",
-            "NUM": "Numeri",
-            "DEU": "Deuteronomium",
-            "JOS": "Jozua",
-            "JDG": "Rechters",
-            "RUT": "Ruth",
-            "1SA": "1 Samuel",
-            "2SA": "2 Samuel",
-            "1KI": "1 Koningen",
-            "2KI": "2 Koningen",
-            "1CH": "1 Kronieken",
-            "2CH": "2 Kronieken",
-            "EZR": "Ezra",
-            "NEH": "Nehemia",
-            "EST": "Ester",
-            "JOB": "Job",
-            "PSA": "Psalmen",
-            "PRO": "Spreuken",
-            "ECC": "Prediker",
-            "SNG": "Hooglied",
-            "ISA": "Jesaja",
-            "JER": "Jeremia",
-            "LAM": "Klaagliederen",
-            "EZK": "Ezechiël",
-            "DAN": "Daniël",
-            "HOS": "Hosea",
-            "JOL": "Joël",
-            "AMO": "Amos",
-            "OBA": "Obadja",
-            "JON": "Jona",
-            "MIC": "Micha",
-            "NAM": "Nahum",
-            "HAB": "Habakuk",
-            "ZEP": "Zefanja",
-            "HAG": "Haggai",
-            "ZEC": "Zacharia",
-            "MAL": "Maleachi",
-
-            "MAT": "Matteüs",
-            "MRK": "Marcus",
-            "LUK": "Lucas",
-            "JHN": "Johannes",
-            "ACT": "Handelingen",
-            "ROM": "Romeinen",
-            "1CO": "1 Korintiërs",
-            "2CO": "2 Korintiërs",
-            "GAL": "Galaten",
-            "EPH": "Efeziërs",
-            "PHP": "Filippenzen",
-            "COL": "Kolossenzen",
-            "1TH": "1 Tessalonicenzen",
-            "2TH": "2 Tessalonicenzen",
-            "1TI": "1 Timoteüs",
-            "2TI": "2 Timoteüs",
-            "TIT": "Titus",
-            "PHM": "Filemon",
-            "HEB": "Hebreeën",
-            "JAS": "Jakobus",
-            "1PE": "1 Petrus",
-            "2PE": "2 Petrus",
-            "1JN": "1 Johannes",
-            "2JN": "2 Johannes",
-            "3JN": "3 Johannes",
-            "JUD": "Judas",
-            "REV": "Openbaring"
-        };
-
-
-        /*
-         * =====================================================
-         * DOM
-         * =====================================================
-         */
-
-        const searchForm =
-            document.getElementById("searchForm");
-
-        const searchInput =
-            document.getElementById("searchInput");
-
-        const results =
-            document.getElementById("results");
-
-        const resultsHeader =
-            document.getElementById("resultsHeader");
-
-        const resultsCount =
-            document.getElementById("resultsCount");
-
-        const emptyState =
-            document.getElementById("emptyState");
-
-
-        /*
-         * =====================================================
-         * NORMALISEREN
-         * =====================================================
-         */
-
-        function normaliseer(tekst) {
-
-            return tekst
-                .toLowerCase()
-                .trim()
-
-                // Verschillende soorten streepjes
-                .replace(/[–—−]/g, "-")
-
-                // Meerdere spaties
-                .replace(/\s+/g, " ")
-
-                // Spaties rond :
-                .replace(/\s*:\s*/g, ":")
-
-                // Spaties rond .
-                .replace(/\s*\.\s*/g, ".");
+<script>
+    // =========================================
+    // BIJBELBOEKEN DATA
+    // =========================================
+    const BIBLE_BOOKS = {
+        'GEN': { abbr: 'Gen', chapters: 50, name: 'Genesis' },
+        'EXO': { abbr: 'Exo', chapters: 40, name: 'Exodus' },
+        'LEV': { abbr: 'Lev', chapters: 27, name: 'Leviticus' },
+        'NUM': { abbr: 'Num', chapters: 36, name: 'Numeri' },
+        'DEU': { abbr: 'Deu', chapters: 34, name: 'Deuteronomium' },
+        'JOS': { abbr: 'Jos', chapters: 24, name: 'Jozua' },
+        'JDG': { abbr: 'Jdg', chapters: 21, name: 'Rechters' },
+        'RUT': { abbr: 'Rut', chapters: 4, name: 'Ruth' },
+        '1SA': { abbr: '1Sa', chapters: 31, name: '1 Samuel' },
+        '2SA': { abbr: '2Sa', chapters: 24, name: '2 Samuel' },
+        '1KI': { abbr: '1Ki', chapters: 22, name: '1 Koningen' },
+        '2KI': { abbr: '2Ki', chapters: 25, name: '2 Koningen' },
+        '1CH': { abbr: '1Ch', chapters: 29, name: '1 Kronieken' },
+        '2CH': { abbr: '2Ch', chapters: 36, name: '2 Kronieken' },
+        'EZR': { abbr: 'Ezr', chapters: 10, name: 'Ezra' },
+        'NEH': { abbr: 'Neh', chapters: 13, name: 'Nehemia' },
+        'EST': { abbr: 'Est', chapters: 10, name: 'Ester' },
+        'JOB': { abbr: 'Job', chapters: 42, name: 'Job' },
+        'PSA': { abbr: 'Psa', chapters: 150, name: 'Psalmen' },
+        'PRO': { abbr: 'Pro', chapters: 31, name: 'Spreuken' },
+        'ECC': { abbr: 'Ecc', chapters: 12, name: 'Prediker' },
+        'SNG': { abbr: 'Sng', chapters: 8, name: 'Hooglied' },
+        'ISA': { abbr: 'Isa', chapters: 66, name: 'Jesaja' },
+        'JER': { abbr: 'Jer', chapters: 52, name: 'Jeremia' },
+        'LAM': { abbr: 'Lam', chapters: 5, name: 'Klaagliederen' },
+        'EZK': { abbr: 'Ezk', chapters: 48, name: 'Ezechiël' },
+        'DAN': { abbr: 'Dan', chapters: 12, name: 'Daniël' },
+        'HOS': { abbr: 'Hos', chapters: 14, name: 'Hosea' },
+        'JOL': { abbr: 'Jol', chapters: 3, name: 'Joël' },
+        'AMO': { abbr: 'Amo', chapters: 9, name: 'Amos' },
+        'OBA': { abbr: 'Oba', chapters: 1, name: 'Obadja' },
+        'JON': { abbr: 'Jon', chapters: 4, name: 'Jona' },
+        'MIC': { abbr: 'Mic', chapters: 7, name: 'Micha' },
+        'NAM': { abbr: 'Nam', chapters: 3, name: 'Nahum' },
+        'HAB': { abbr: 'Hab', chapters: 3, name: 'Habakuk' },
+        'ZEP': { abbr: 'Zep', chapters: 3, name: 'Zefanja' },
+        'HAG': { abbr: 'Hag', chapters: 2, name: 'Haggai' },
+        'ZEC': { abbr: 'Zec', chapters: 14, name: 'Zacharia' },
+        'MAL': { abbr: 'Mal', chapters: 4, name: 'Maleachi' },
+        'MAT': { abbr: 'Mat', chapters: 28, name: 'Matteüs' },
+        'MRK': { abbr: 'Mrk', chapters: 16, name: 'Marcus' },
+        'LUK': { abbr: 'Luk', chapters: 24, name: 'Lucas' },
+        'JHN': { abbr: 'Jhn', chapters: 21, name: 'Johannes' },
+        'ACT': { abbr: 'Act', chapters: 28, name: 'Handelingen' },
+        'ROM': { abbr: 'Rom', chapters: 16, name: 'Romeinen' },
+        '1CO': { abbr: '1Co', chapters: 16, name: '1 Korintiërs' },
+        '2CO': { abbr: '2Co', chapters: 13, name: '2 Korintiërs' },
+        'GAL': { abbr: 'Gal', chapters: 6, name: 'Galaten' },
+        'EPH': { abbr: 'Eph', chapters: 6, name: 'Efeziërs' },
+        'PHP': { abbr: 'Php', chapters: 4, name: 'Filippenzen' },
+        'COL': { abbr: 'Col', chapters: 4, name: 'Kolossenzen' },
+        '1TH': { abbr: '1Th', chapters: 5, name: '1 Tessalonicenzen' },
+        '2TH': { abbr: '2Th', chapters: 3, name: '2 Tessalonicenzen' },
+        '1TI': { abbr: '1Ti', chapters: 6, name: '1 Timoteüs' },
+        '2TI': { abbr: '2Ti', chapters: 4, name: '2 Timoteüs' },
+        'TIT': { abbr: 'Tit', chapters: 3, name: 'Titus' },
+        'PHM': { abbr: 'Phm', chapters: 1, name: 'Filemon' },
+        'HEB': { abbr: 'Heb', chapters: 13, name: 'Hebreeën' },
+        'JAS': { abbr: 'Jas', chapters: 5, name: 'Jakobus' },
+        '1PE': { abbr: '1Pe', chapters: 5, name: '1 Petrus' },
+        '2PE': { abbr: '2Pe', chapters: 3, name: '2 Petrus' },
+        '1JN': { abbr: '1Jn', chapters: 5, name: '1 Johannes' },
+        '2JN': { abbr: '2Jn', chapters: 1, name: '2 Johannes' },
+        '3JN': { abbr: '3Jn', chapters: 1, name: '3 Johannes' },
+        'JUD': { abbr: 'Jud', chapters: 1, name: 'Judas' },
+        'REV': { abbr: 'Rev', chapters: 22, name: 'Openbaring' }
+    };
+
+    // =========================================
+    // MODE MANAGEMENT
+    // =========================================
+    const modeBtns = document.querySelectorAll('.mode-btn');
+    const searchBox = document.querySelector('.search-box');
+    const searchHints = document.querySelector('.search-hints');
+    const easyInputContainer = document.querySelector('.easy-input-container');
+
+    function switchMode(mode) {
+        modeBtns.forEach(b => {
+            if (b.dataset.mode === mode) b.classList.add('active');
+            else b.classList.remove('active');
+        });
+
+        if (mode === 'manual') {
+            searchBox.classList.add('active');
+            searchHints.classList.add('active');
+            easyInputContainer.classList.remove('active');
+        } else {
+            searchBox.classList.remove('active');
+            searchHints.classList.remove('active');
+            easyInputContainer.classList.add('active');
+            initializeEasyInput();
+        }
+    }
+
+    modeBtns.forEach(btn => {
+        btn.addEventListener('click', () => switchMode(btn.dataset.mode));
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        // Zorg dat de visuele stand bij laden klopt met de HTML 'active' knop
+        const activeMode = document.querySelector('.mode-btn.active')?.dataset.mode || 'easy';
+        switchMode(activeMode);
+    });
+
+    // =========================================
+    // EASY INPUT INITIALIZATION
+    // =========================================
+    function initializeEasyInput() {
+        const bookSelect = document.getElementById('bookSelect');
+
+        if (bookSelect.options.length <= 1) {
+            Object.entries(BIBLE_BOOKS).forEach(([code, data]) => {
+                const option = document.createElement('option');
+                option.value = code;
+                option.textContent = data.name; // Gebruik volledige naam i.p.v. code
+                bookSelect.appendChild(option);
+            });
+        }
+    }
+
+    // =========================================
+    // SEARCH LOGIC
+    // =========================================
+    const searchForm = document.getElementById('searchForm');
+    const searchInput = document.getElementById('searchInput');
+    const easyInputForm = document.getElementById('easyInputForm');
+    const resultsDiv = document.getElementById('results');
+    const resultsHeader = document.getElementById('resultsHeader');
+    const emptyState = document.getElementById('emptyState');
+
+    searchForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const query = searchInput.value.trim();
+        if (query) performSearch(query);
+    });
+
+    easyInputForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const bookCode = document.getElementById('bookSelect').value;
+        const chapter = document.getElementById('chapterInput').value;
+        const verse = document.getElementById('verseInput').value;
+
+        if (!bookCode || !chapter) {
+            alert('Vul alstublieft een boek en hoofdstuk in');
+            return;
         }
 
+        const bookData = BIBLE_BOOKS[bookCode];
+        let query = `${bookData.name} ${chapter}`;
+        if (verse) query += `:${verse}`;
 
-        /*
-         * =====================================================
-         * VERWIJZING PARSEN
-         * =====================================================
-         *
-         * Ondersteunt:
-         *
-         * Johannes 3:16
-         * Johannes 3
-         * Marcus 5:1-20
-         * marc.5.1-20
-         * marc 5:1-20
-         * GEN.1.1
-         * Joh3:16
-         *
-         * =====================================================
-         */
+        performSearch(query);
+    });
 
-        function parseVerwijzing(input) {
+    document.querySelectorAll('.hint').forEach(hint => {
+        hint.addEventListener('click', () => {
+            const query = hint.dataset.search;
+            searchInput.value = query;
+            performSearch(query);
+        });
+    });
 
-            let tekst = normaliseer(input);
+    function performSearch(query) {
+        const results = searchBibleBooks(query);
+        displayResults(results);
+    }
 
+    // =========================================
+    // SEARCH AND RESULTS
+    // =========================================
+    function searchBibleBooks(query) {
+        const results = [];
 
-            if (!tekst) {
-                return null;
-            }
+        Object.entries(BIBLE_BOOKS).forEach(([code, data]) => {
+            // Zoek op de volledige naam of op de 3-lettercode
+            const bookRegex = new RegExp(`(?:^|\\b)${data.name}|${code}(?:\\b|$)`, 'i');
+            
+            if (bookRegex.test(query)) {
+                // Verwijder de boeknaam uit de zoekopdracht om nummerfouten te voorkomen (zoals bij '1 Johannes')
+                const remainingQuery = query.replace(bookRegex, '').trim();
+                
+                // Match het hoofdstuk en optioneel de verzen
+                const chapterMatch = remainingQuery.match(/(\d+)(?::(\d+(?:-\d+)?)?)?/);
+                
+                if (chapterMatch) {
+                    const chapter = parseInt(chapterMatch[1], 10);
+                    const verses = chapterMatch[2] || null;
 
-
-            /*
-             * -----------------------------------------------
-             * PUNTNOTATIE
-             *
-             * marc.5.1-20
-             * GEN.1.1
-             * -----------------------------------------------
-             */
-
-            if (tekst.includes(".")) {
-
-                const delen =
-                    tekst.split(".");
-
-
-                if (delen.length >= 2) {
-
-                    const boek =
-                        delen[0].trim();
-
-
-                    const verwijzing =
-                        delen
-                            .slice(1)
-                            .join(".")
-                            .trim();
-
-
-                    if (
-                        boeken[boek] &&
-                        verwijzing
-                    ) {
-
-                        return {
-                            code: boeken[boek],
-                            verwijzing: verwijzing
-                        };
+                    if (chapter >= 1 && chapter <= data.chapters) {
+                        results.push({
+                            bookName: data.name,
+                            chapter,
+                            verses,
+                            abbr: data.abbr
+                        });
                     }
                 }
             }
+        });
 
+        return results;
+    }
 
-            /*
-             * -----------------------------------------------
-             * NORMALE NOTATIE
-             *
-             * Johannes 3:16
-             * Marcus 5:1-20
-             * Genesis 1
-             * -----------------------------------------------
-             */
+    function displayResults(results) {
+        resultsDiv.innerHTML = '';
+        resultsHeader.classList.remove('visible');
+        emptyState.classList.remove('visible');
 
-            const match =
-                tekst.match(
-                    /^(.+?)\s+(\d+(?::[\d]+(?:[-–][\d]+)?)?)$/
-                );
-
-
-            if (match) {
-
-                const boek =
-                    match[1]
-                        .replace(/\s+/g, "")
-                        .trim();
-
-
-                const verwijzing =
-                    match[2].trim();
-
-
-                if (boeken[boek]) {
-
-                    return {
-                        code: boeken[boek],
-                        verwijzing: verwijzing
-                    };
-                }
-            }
-
-
-            /*
-             * -----------------------------------------------
-             * COMPACTE NOTATIE
-             *
-             * Joh3:16
-             * Marc5:1-20
-             * -----------------------------------------------
-             */
-
-            const compact =
-                tekst.match(
-                    /^([a-zA-ZÀ-ÿ0-9]+)(\d+(?::[\d]+(?:[-–][\d]+)?)?)$/
-                );
-
-
-            if (compact) {
-
-                const boek =
-                    compact[1].toLowerCase();
-
-
-                const verwijzing =
-                    compact[2];
-
-
-                if (boeken[boek]) {
-
-                    return {
-                        code: boeken[boek],
-                        verwijzing: verwijzing
-                    };
-                }
-            }
-
-
-            return null;
+        if (results.length === 0) {
+            emptyState.classList.add('visible');
+            return;
         }
 
+        resultsHeader.classList.add('visible');
+        document.getElementById('resultsCount').textContent = `${results.length} resultaat${results.length !== 1 ? 'en' : ''}`;
 
-        /*
-         * =====================================================
-         * BIBLE.COM URL MAKEN
-         * =====================================================
-         *
-         * BELANGRIJK:
-         *
-         * UI:
-         * Johannes 3:16
-         *
-         * Bible.com:
-         * JHN.3.16.HTB
-         *
-         * De dubbele punt wordt dus vervangen
-         * door een punt.
-         * =====================================================
-         */
+        results.forEach(result => {
+            const card = createResultCard(result);
+            resultsDiv.appendChild(card);
+        });
+    }
 
-        function maakBibleUrl(
-            code,
-            verwijzing
-        ) {
+    function createResultCard(result) {
+        const { bookName, chapter, verses, abbr } = result;
 
-            /*
-             * 3:16
-             * wordt
-             * 3.16
-             */
-
-            const bibleVerwijzing =
-                verwijzing.replace(
-                    /:/g,
-                    "."
-                );
-
-
-            return (
-                `https://www.bible.com/nl/bible/75/` +
-                `${code}.${bibleVerwijzing}.HTB`
-            );
+        let url = `https://www.bible.com/nl/bible/111/${abbr}.${chapter}`;
+        if (verses) {
+            const versesPart = verses.replace('-', '%2D');
+            url += `.${versesPart}`;
         }
 
-
-        /*
-         * =====================================================
-         * RESULTAAT TONEN
-         * =====================================================
-         */
-
-        function toonResultaat(
-            zoekterm
-        ) {
-
-            const parsed =
-                parseVerwijzing(zoekterm);
-
-
-            /*
-             * Oude resultaten verwijderen
-             */
-
-            results.innerHTML = "";
-
-
-            /*
-             * Geen geldig resultaat
-             */
-
-            if (!parsed) {
-
-                resultsHeader
-                    .classList
-                    .remove("visible");
-
-                emptyState
-                    .classList
-                    .add("visible");
-
-                return;
-            }
-
-
-            /*
-             * Geldig resultaat
-             */
-
-            emptyState
-                .classList
-                .remove("visible");
-
-
-            resultsHeader
-                .classList
-                .add("visible");
-
-
-            const naam =
-                boekNamen[parsed.code]
-                || parsed.code;
-
-
-            /*
-             * Bible.com URL
-             */
-
-            const url =
-                maakBibleUrl(
-                    parsed.code,
-                    parsed.verwijzing
-                );
-
-
-            resultsCount.textContent =
-                "1 resultaat";
-
-
-            /*
-             * Resultaatkaart
-             */
-
-            const card =
-                document.createElement("a");
-
-
-            card.className =
-                "result-card";
-
-
-            card.href =
-                url;
-
-
-            /*
-             * Open in nieuwe tab
-             */
-
-            card.target =
-                "_blank";
-
-
-            card.rel =
-                "noopener noreferrer";
-
-
-            /*
-             * HTML van de kaart
-             */
-
-            card.innerHTML = `
-
-                <div class="result-left">
-
-                    <div class="book-icon">
-
-                        <svg
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="1.8"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        >
-
-                            <path
-                                d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5z"
-                            ></path>
-
-                            <path
-                                d="M4 5.5v16"
-                            ></path>
-
-                            <path
-                                d="M8 7h8"
-                            ></path>
-
-                        </svg>
-
-                    </div>
-
-
-                    <div>
-
-                        <p class="result-book">
-
-                            ${naam}
-
-                        </p>
-
-
-                        <p class="result-reference">
-
-                            ${naam}
-                            ${parsed.verwijzing}
-                            · Het Boek (HTB)
-
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="result-arrow">
-
-                    <svg
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    >
-
-                        <path
-                            d="M5 12h14"
-                        ></path>
-
-                        <path
-                            d="m13 6 6 6-6 6"
-                        ></path>
-
+        const card = document.createElement('a');
+        card.href = url;
+        card.target = '_blank';
+        card.rel = 'noopener noreferrer';
+        card.className = 'result-card';
+
+        card.innerHTML = `
+            <div class="result-left">
+                <div class="book-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M4 6h16v2H4V6zm0 5h16v2H4v-2zm0 5h16v2H4v-2z"/>
+                        <path d="M3 1h18v2H3V1zm0 20h18v2H3v-2z"/>
                     </svg>
-
                 </div>
-            `;
+                <div>
+                    <h3 class="result-book">${bookName}</h3>
+                    <p class="result-reference">Hoofdstuk ${chapter}${verses ? `, Vers ${verses}` : ''}</p>
+                </div>
+            </div>
+            <div class="result-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </div>
+        `;
 
-
-            results.appendChild(card);
-        }
-
-
-        /*
-         * =====================================================
-         * ZOEKFORMULIER
-         * =====================================================
-         */
-
-        searchForm.addEventListener(
-            "submit",
-            function(event) {
-
-                event.preventDefault();
-
-
-                const waarde =
-                    searchInput.value.trim();
-
-
-                /*
-                 * Niets ingevoerd
-                 */
-
-                if (!waarde) {
-
-                    searchInput.focus();
-
-                    return;
-                }
-
-
-                /*
-                 * Resultaat tonen
-                 */
-
-                toonResultaat(
-                    waarde
-                );
-
-
-                /*
-                 * URL van onze eigen zoekpagina aanpassen
-                 *
-                 * Bijvoorbeeld:
-                 *
-                 * index.html?bijbel=Johannes%203%3A16
-                 *
-                 */
-
-                const nieuweUrl =
-                    `${window.location.pathname}?bijbel=${encodeURIComponent(waarde)}`;
-
-
-                window.history.replaceState(
-                    {},
-                    "",
-                    nieuweUrl
-                );
-
-
-                /*
-                 * Scroll naar resultaat
-                 */
-
-                setTimeout(
-                    () => {
-
-                        document
-                            .getElementById("results")
-                            .scrollIntoView({
-                                behavior: "smooth",
-                                block: "center"
-                            });
-
-                    },
-                    50
-                );
-            }
-        );
-
-
-        /*
-         * =====================================================
-         * VOORBEELDKNOPPEN
-         * =====================================================
-         */
-
-        document
-            .querySelectorAll(".hint")
-            .forEach(
-                button => {
-
-                    button.addEventListener(
-                        "click",
-                        () => {
-
-                            const waarde =
-                                button.dataset.search;
-
-
-                            searchInput.value =
-                                waarde;
-
-
-                            searchForm.dispatchEvent(
-                                new Event(
-                                    "submit",
-                                    {
-                                        bubbles: true,
-                                        cancelable: true
-                                    }
-                                )
-                            );
-                        }
-                    );
-                }
-            );
-
-
-        /*
-         * =====================================================
-         * URL BIJ HET LADEN
-         * =====================================================
-         *
-         * Bijvoorbeeld:
-         *
-         * index.html?bijbel=marc.5.1-20
-         *
-         * wordt automatisch geladen.
-         * =====================================================
-         */
-
-        const params =
-            new URLSearchParams(
-                window.location.search
-            );
-
-
-        const bijbel =
-            params.get("bijbel");
-
-
-        if (bijbel) {
-
-            searchInput.value =
-                bijbel;
-
-
-            toonResultaat(
-                bijbel
-            );
-        }
-
-
-        /*
-         * =====================================================
-         * SNELTOETS /
-         * =====================================================
-         *
-         * Druk op "/" om meteen te zoeken.
-         * =====================================================
-         */
-
-        document.addEventListener(
-            "keydown",
-            event => {
-
-                if (
-                    event.key === "/" &&
-                    document.activeElement !== searchInput
-                ) {
-
-                    event.preventDefault();
-
-                    searchInput.focus();
-                }
-            }
-        );
-
-    </script>
+        return card;
+    }
+</script>
 
 </body>
 </html>
