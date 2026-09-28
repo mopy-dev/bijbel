@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>Bijbel redirect</title>
+</head>
+<body>
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const bijbel = params.get("bijbel");
+
+    // Bijbelboek → Bible.com afkorting
+    const boeken = {
+        "genesis": "GEN",
+        "exodus": "EXO",
+        "leviticus": "LEV",
+        "numeri": "NUM",
+        "deuteronomium": "DEU",
+        "josua": "JOS",
+        "rechters": "JDG",
+        "ruth": "RUT",
+        "1samuel": "1SA",
+        "2samuel": "2SA",
+        "1koningen": "1KI",
+        "2koningen": "2KI",
+        "1kronieken": "1CH",
+        "2kronieken": "2CH",
+        "ezra": "EZR",
+        "nehemia": "NEH",
+        "ester": "EST",
+        "job": "JOB",
+        "psalmen": "PSA",
+        "spreuken": "PRO",
+        "prediker": "ECC",
+        "hooglied": "SNG",
+        "jesaja": "ISA",
+        "jeremia": "JER",
+        "klaagliederen": "LAM",
+        "ezechiel": "EZK",
+        "daniel": "DAN",
+        "hosea": "HOS",
+        "joel": "JOL",
+        "amos": "AMO",
+        "obadja": "OBA",
+        "jona": "JON",
+        "micha": "MIC",
+        "nahum": "NAM",
+        "habakuk": "HAB",
+        "zefanja": "ZEP",
+        "haggai": "HAG",
+        "zacharia": "ZEC",
+        "maleachi": "MAL",
+
+        "matteus": "MAT",
+        "mattheus": "MAT",
+        "marcus": "MRK",
+        "marc": "MRK",
+        "lucas": "LUK",
+        "johannes": "JHN",
+        "handelingen": "ACT",
+        "romeinen": "ROM",
+        "1korintiers": "1CO",
+        "2korintiers": "2CO",
+        "galaten": "GAL",
+        "efezers": "EPH",
+        "filippenzen": "PHP",
+        "kolossenzen": "COL",
+        "1tessalonicenzen": "1TH",
+        "2tessalonicenzen": "2TH",
+        "1timoteus": "1TI",
+        "2timoteus": "2TI",
+        "titus": "TIT",
+        "filemon": "PHM",
+        "hebreeen": "HEB",
+        "jakobus": "JAS",
+        "1petrus": "1PE",
+        "2petrus": "2PE",
+        "1johannes": "1JN",
+        "2johannes": "2JN",
+        "3johannes": "3JN",
+        "judas": "JUD",
+        "openbaring": "REV"
+    };
+
+    if (bijbel) {
+        // Bijvoorbeeld: marc.5.1-20
+        const delen = bijbel.toLowerCase().split(".");
+
+        const boek = delen[0];
+        const verwijzing = delen.slice(1).join(".");
+
+        if (boeken[boek] && verwijzing) {
+            const code = boeken[boek];
+
+            // HTB = Het Boek
+            const url = `https://www.bible.com/nl/bible/75/${code}.${verwijzing}.HTB`;
+
+            window.location.replace(url);
+        }
+    }
+</script>
+
+</body>
+</html>
