@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -7,10 +8,7 @@
 
     <title>Bijbelzoeker | SJB</title>
 
-    <meta
-        name="description"
-        content="Zoek snel een Bijbelverwijzing en open ze rechtstreeks op Bible.com."
-    >
+    <meta name="description" content="Zoek snel een Bijbelverwijzing en open ze rechtstreeks op Bible.com.">
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
@@ -43,39 +41,21 @@
             min-height: 100vh;
             font-family: "DM Sans", sans-serif;
             color: var(--text);
-
             background:
-                radial-gradient(
-                    circle at 10% 10%,
-                    rgba(244, 197, 66, 0.16),
-                    transparent 28%
-                ),
-                radial-gradient(
-                    circle at 90% 20%,
-                    rgba(21, 60, 107, 0.09),
-                    transparent 30%
-                ),
+                radial-gradient(circle at 10% 10%, rgba(244, 197, 66, 0.16), transparent 28%),
+                radial-gradient(circle at 90% 20%, rgba(21, 60, 107, 0.09), transparent 30%),
                 var(--background);
         }
 
-        /* =========================================
-           NAVBAR
-        ========================================= */
-
         .navbar {
             height: 76px;
-
             display: flex;
             align-items: center;
             justify-content: space-between;
-
             padding: 0 5vw;
-
             background: rgba(255, 255, 255, 0.86);
             backdrop-filter: blur(18px);
-
             border-bottom: 1px solid rgba(227, 232, 238, 0.8);
-
             position: sticky;
             top: 0;
             z-index: 20;
@@ -85,7 +65,6 @@
             display: flex;
             align-items: center;
             gap: 12px;
-
             text-decoration: none;
             color: var(--blue);
         }
@@ -93,21 +72,18 @@
         .brand-logo {
             width: 42px;
             height: 42px;
-
             border-radius: 13px;
-
-            background: var(--blue);
-            color: white;
-
+            overflow: hidden;
             display: grid;
             place-items: center;
+            box-shadow: 0 8px 20px rgba(21, 60, 107, 0.2);
+        }
 
-            font-family: "Space Grotesk", sans-serif;
-            font-weight: 700;
-            font-size: 16px;
-
-            box-shadow:
-                0 8px 20px rgba(21, 60, 107, 0.2);
+        .brand-logo img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
         }
 
         .brand-text {
@@ -116,7 +92,6 @@
 
         .brand-name {
             display: block;
-
             font-family: "Space Grotesk", sans-serif;
             font-size: 17px;
             font-weight: 700;
@@ -124,14 +99,10 @@
 
         .brand-subtitle {
             display: block;
-
             margin-top: 3px;
-
             font-size: 11px;
             font-weight: 600;
-
             color: var(--muted);
-
             letter-spacing: 0.04em;
             text-transform: uppercase;
         }
@@ -140,14 +111,10 @@
             display: flex;
             align-items: center;
             gap: 8px;
-
             padding: 9px 14px;
-
             border-radius: 999px;
-
             background: var(--yellow-light);
             color: #80620b;
-
             font-size: 13px;
             font-weight: 600;
         }
@@ -155,24 +122,14 @@
         .nav-dot {
             width: 7px;
             height: 7px;
-
             border-radius: 50%;
-
             background: var(--yellow);
         }
 
-
-        /* =========================================
-           HERO
-        ========================================= */
-
         .hero {
             width: min(1050px, 90%);
-
             margin: 0 auto;
-
             padding: 90px 0 55px;
-
             text-align: center;
         }
 
@@ -180,45 +137,31 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-
             padding: 8px 13px;
-
             border-radius: 999px;
-
             background: var(--blue-light);
             color: var(--blue);
-
             font-size: 12px;
             font-weight: 700;
-
             letter-spacing: 0.04em;
             text-transform: uppercase;
-
             margin-bottom: 20px;
         }
 
         .eyebrow-icon {
             width: 7px;
             height: 7px;
-
             border-radius: 50%;
-
             background: var(--green);
         }
 
         h1 {
             max-width: 800px;
-
             margin: 0 auto;
-
             font-family: "Space Grotesk", sans-serif;
-
             font-size: clamp(42px, 7vw, 76px);
-
             line-height: 0.98;
-
             letter-spacing: -0.055em;
-
             color: var(--blue-dark);
         }
 
@@ -228,97 +171,58 @@
 
         .hero-description {
             max-width: 620px;
-
             margin: 24px auto 34px;
-
             color: var(--muted);
-
             font-size: 17px;
-
             line-height: 1.65;
         }
-
-
-        /* =========================================
-           SEARCH MODE TOGGLE
-        ========================================= */
 
         .mode-toggle {
             display: flex;
             justify-content: center;
             gap: 12px;
-
             margin-bottom: 28px;
         }
 
         .mode-btn {
             padding: 8px 18px;
-
             border: 1px solid var(--border);
-
             background: rgba(255, 255, 255, 0.7);
-
             color: var(--muted);
-
             border-radius: 16px;
-
             font-family: inherit;
-
             font-size: 13px;
-
             font-weight: 600;
-
             cursor: pointer;
-
             transition: all 0.2s ease;
         }
 
         .mode-btn.active {
             background: var(--blue);
-
             color: white;
-
             border-color: var(--blue);
         }
 
         .mode-btn:hover:not(.active) {
             background: white;
-
             border-color: #c9d3df;
-
             color: var(--blue);
         }
 
-
-        /* =========================================
-           SEARCH
-        ========================================= */
-
         .search-wrapper {
             max-width: 780px;
-
             margin: 0 auto;
         }
 
-        /* Manual Mode */
         .search-box {
             display: none;
             align-items: center;
-
             padding: 8px;
-
             background: var(--white);
-
             border: 1px solid var(--border);
-
             border-radius: 22px;
-
             box-shadow: var(--shadow);
-
-            transition:
-                border-color 0.2s ease,
-                box-shadow 0.2s ease,
-                transform 0.2s ease;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
         }
 
         .search-box.active {
@@ -327,20 +231,14 @@
 
         .search-box:focus-within {
             border-color: rgba(21, 60, 107, 0.35);
-
-            box-shadow:
-                0 24px 70px rgba(21, 60, 107, 0.14),
-                0 0 0 4px rgba(21, 60, 107, 0.06);
-
+            box-shadow: 0 24px 70px rgba(21, 60, 107, 0.14), 0 0 0 4px rgba(21, 60, 107, 0.06);
             transform: translateY(-2px);
         }
 
         .search-icon {
             flex: 0 0 52px;
-
             display: grid;
             place-items: center;
-
             color: var(--muted);
         }
 
@@ -351,18 +249,12 @@
 
         #searchInput {
             min-width: 0;
-
             flex: 1;
-
             height: 54px;
-
             border: 0;
             outline: 0;
-
             background: transparent;
-
             color: var(--text);
-
             font-family: inherit;
             font-size: 16px;
         }
@@ -373,30 +265,20 @@
 
         .search-button {
             height: 54px;
-
             padding: 0 24px;
-
             border: 0;
             border-radius: 16px;
-
             background: var(--blue);
             color: white;
-
             font-family: inherit;
-
             font-size: 14px;
             font-weight: 700;
-
             cursor: pointer;
-
-            transition:
-                background 0.2s ease,
-                transform 0.2s ease;
+            transition: background 0.2s ease, transform 0.2s ease;
         }
 
         .search-button:hover {
             background: var(--blue-dark);
-
             transform: translateY(-1px);
         }
 
@@ -404,9 +286,7 @@
             display: none;
             justify-content: center;
             flex-wrap: wrap;
-
             gap: 8px;
-
             margin-top: 15px;
         }
 
@@ -416,35 +296,21 @@
 
         .hint {
             border: 1px solid var(--border);
-
             background: rgba(255, 255, 255, 0.7);
-
             color: var(--muted);
-
             border-radius: 999px;
-
             padding: 7px 11px;
-
             font-family: inherit;
             font-size: 12px;
-
             cursor: pointer;
-
             transition: all 0.2s ease;
         }
 
         .hint:hover {
             background: white;
-
             border-color: #c9d3df;
-
             color: var(--blue);
         }
-
-
-        /* =========================================
-           EASY INPUT MODE
-        ========================================= */
 
         .easy-input-container {
             display: none;
@@ -458,7 +324,6 @@
             display: grid;
             grid-template-columns: 1fr 1fr 1fr auto;
             gap: 12px;
-
             margin-bottom: 20px;
         }
 
@@ -469,55 +334,37 @@
 
         .easy-input-label {
             font-size: 12px;
-
             font-weight: 700;
-
             color: var(--blue);
-
             text-transform: uppercase;
-
             letter-spacing: 0.04em;
-
             margin-bottom: 7px;
         }
 
         .easy-input-desc {
             font-size: 11px;
-
             color: var(--muted);
-
             margin-top: 2px;
-
             line-height: 1.4;
         }
 
         .easy-input-select,
         .easy-input-number {
             padding: 11px 14px;
-
             border: 1px solid var(--border);
-
             border-radius: 12px;
-
             background: white;
-
             color: var(--text);
-
             font-family: inherit;
-
             font-size: 14px;
-
             cursor: pointer;
-
             transition: all 0.2s ease;
         }
 
         .easy-input-select:focus,
         .easy-input-number:focus {
             outline: 0;
-
             border-color: rgba(21, 60, 107, 0.35);
-
             box-shadow: 0 0 0 3px rgba(21, 60, 107, 0.06);
         }
 
@@ -532,32 +379,21 @@
 
         .easy-input-button {
             align-self: flex-end;
-
             height: 48px;
-
             padding: 0 24px;
-
             border: 0;
             border-radius: 12px;
-
             background: var(--blue);
             color: white;
-
             font-family: inherit;
-
             font-size: 14px;
             font-weight: 700;
-
             cursor: pointer;
-
-            transition:
-                background 0.2s ease,
-                transform 0.2s ease;
+            transition: background 0.2s ease, transform 0.2s ease;
         }
 
         .easy-input-button:hover {
             background: var(--blue-dark);
-
             transform: translateY(-1px);
         }
 
@@ -567,15 +403,10 @@
 
         .easy-select-search {
             position: absolute;
-
             top: 0;
-
             left: 0;
-
             width: 100%;
-
             z-index: 10;
-
             display: none;
         }
 
@@ -585,17 +416,11 @@
 
         .easy-select-search input {
             width: 100%;
-
             padding: 11px 14px;
-
             border: 1px solid rgba(21, 60, 107, 0.35);
-
             border-radius: 12px;
-
             font-family: inherit;
-
             font-size: 14px;
-
             box-shadow: 0 0 0 3px rgba(21, 60, 107, 0.06);
         }
 
@@ -605,27 +430,16 @@
 
         .easy-select-list {
             position: absolute;
-
             top: 52px;
-
             left: 0;
-
             width: 100%;
-
             max-height: 240px;
-
             overflow-y: auto;
-
             background: white;
-
             border: 1px solid var(--border);
-
             border-radius: 12px;
-
             box-shadow: 0 8px 25px rgba(21, 60, 107, 0.12);
-
             display: none;
-
             z-index: 11;
         }
 
@@ -635,11 +449,8 @@
 
         .easy-select-option {
             padding: 11px 14px;
-
             cursor: pointer;
-
             transition: all 0.15s ease;
-
             border-bottom: 1px solid var(--border);
         }
 
@@ -649,35 +460,24 @@
 
         .easy-select-option:hover {
             background: var(--blue-light);
-
             color: var(--blue);
         }
 
         .easy-select-option.selected {
             background: var(--blue);
-
             color: white;
-
             font-weight: 600;
         }
 
-
-        /* =========================================
-           RESULTATEN
-        ========================================= */
-
         .results-section {
             width: min(900px, 90%);
-
             margin: 10px auto 80px;
         }
 
         .results-header {
             display: none;
-
             align-items: center;
             justify-content: space-between;
-
             margin-bottom: 14px;
         }
 
@@ -687,87 +487,57 @@
 
         .results-title {
             margin: 0;
-
             font-family: "Space Grotesk", sans-serif;
-
             font-size: 20px;
-
             color: var(--blue-dark);
         }
 
         .results-count {
             font-size: 12px;
-
             color: var(--muted);
         }
 
         #results {
             display: grid;
-
             gap: 12px;
         }
 
         .result-card {
             display: flex;
-
             align-items: center;
             justify-content: space-between;
-
             gap: 20px;
-
             padding: 20px 22px;
-
             background: white;
-
             border: 1px solid var(--border);
-
             border-radius: 18px;
-
             text-decoration: none;
-
             color: inherit;
-
-            box-shadow:
-                0 7px 25px rgba(20, 40, 70, 0.04);
-
-            transition:
-                transform 0.2s ease,
-                box-shadow 0.2s ease,
-                border-color 0.2s ease;
+            box-shadow: 0 7px 25px rgba(20, 40, 70, 0.04);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
         }
 
         .result-card:hover {
             transform: translateY(-2px);
-
             border-color: rgba(21, 60, 107, 0.2);
-
-            box-shadow:
-                0 15px 35px rgba(20, 40, 70, 0.09);
+            box-shadow: 0 15px 35px rgba(20, 40, 70, 0.09);
         }
 
         .result-left {
             display: flex;
-
             align-items: center;
-
             gap: 15px;
-
             min-width: 0;
         }
 
         .book-icon {
             flex: 0 0 45px;
-
             width: 45px;
             height: 45px;
-
             display: grid;
             place-items: center;
-
             border-radius: 13px;
-
             background: var(--blue-light);
-
             color: var(--blue);
         }
 
@@ -778,47 +548,33 @@
 
         .result-book {
             margin: 0 0 4px;
-
             font-family: "Space Grotesk", sans-serif;
-
             font-size: 16px;
-
             font-weight: 700;
-
             color: var(--blue-dark);
         }
 
         .result-reference {
             margin: 0;
-
             color: var(--muted);
-
             font-size: 13px;
         }
 
         .result-arrow {
             flex: 0 0 auto;
-
             width: 38px;
             height: 38px;
-
             border-radius: 50%;
-
             display: grid;
             place-items: center;
-
             background: #f4f7fa;
-
             color: var(--blue);
-
             transition: all 0.2s ease;
         }
 
         .result-card:hover .result-arrow {
             background: var(--yellow);
-
             color: var(--blue-dark);
-
             transform: translateX(2px);
         }
 
@@ -827,24 +583,13 @@
             height: 17px;
         }
 
-
-        /* =========================================
-           EMPTY STATE
-        ========================================= */
-
         .empty-state {
             display: none;
-
             text-align: center;
-
             padding: 35px 20px;
-
             border: 1px dashed #ccd5df;
-
             border-radius: 18px;
-
             color: var(--muted);
-
             background: rgba(255, 255, 255, 0.5);
         }
 
@@ -855,136 +600,87 @@
         .empty-icon {
             width: 48px;
             height: 48px;
-
             margin: 0 auto 12px;
-
             border-radius: 50%;
-
             display: grid;
             place-items: center;
-
             background: var(--yellow-light);
-
             color: #a27d12;
-
             font-size: 20px;
         }
 
         .empty-state strong {
             display: block;
-
             margin-bottom: 5px;
-
             color: var(--blue-dark);
-
             font-size: 15px;
         }
 
         .empty-state p {
             margin: 0;
-
             font-size: 13px;
         }
 
-
-        /* =========================================
-           INFO
-        ========================================= */
-
         .info-grid {
             width: min(1050px, 90%);
-
             margin: 0 auto 80px;
-
             display: grid;
-
             grid-template-columns: repeat(3, 1fr);
-
             gap: 15px;
         }
 
         .info-card {
             padding: 24px;
-
             background: rgba(255, 255, 255, 0.75);
-
             border: 1px solid var(--border);
-
             border-radius: 20px;
         }
 
         .info-number {
             display: inline-grid;
-
             place-items: center;
-
             width: 31px;
             height: 31px;
-
             border-radius: 10px;
-
             background: var(--yellow-light);
-
             color: #8a6b0c;
-
             font-size: 12px;
             font-weight: 700;
-
             margin-bottom: 18px;
         }
 
         .info-card h2 {
             margin: 0 0 7px;
-
             font-family: "Space Grotesk", sans-serif;
-
             font-size: 16px;
-
             color: var(--blue-dark);
         }
 
         .info-card p {
             margin: 0;
-
             color: var(--muted);
-
             font-size: 13px;
-
             line-height: 1.6;
         }
 
-
-        /* =========================================
-           FOOTER
-        ========================================= */
-
         footer {
             padding: 30px 5vw;
-
             border-top: 1px solid var(--border);
-
             background: rgba(255, 255, 255, 0.55);
         }
 
         .footer-inner {
             width: min(1050px, 100%);
-
             margin: auto;
-
             display: flex;
-
             justify-content: space-between;
-
             align-items: center;
-
             gap: 20px;
         }
 
         footer p {
             margin: 0;
-
             color: var(--muted);
-
             font-size: 12px;
         }
 
@@ -1102,9 +798,7 @@
 
         .bible-link {
             color: var(--blue);
-
             text-decoration: none;
-
             font-weight: 700;
         }
 
@@ -1112,16 +806,9 @@
             text-decoration: underline;
         }
 
-
-        /* =========================================
-           RESPONSIVE
-        ========================================= */
-
         @media (max-width: 700px) {
-
             .navbar {
                 height: 68px;
-
                 padding: 0 20px;
             }
 
@@ -1143,7 +830,6 @@
 
             .search-box {
                 border-radius: 18px;
-
                 padding: 7px;
             }
 
@@ -1153,13 +839,11 @@
 
             #searchInput {
                 height: 50px;
-
                 font-size: 15px;
             }
 
             .search-button {
                 height: 50px;
-
                 padding: 0 16px;
             }
 
@@ -1186,24 +870,19 @@
 
             .footer-inner {
                 flex-direction: column;
-
                 text-align: center;
             }
         }
 
         @media (max-width: 450px) {
-
             .search-button {
                 font-size: 0;
-
                 width: 50px;
-
                 padding: 0;
             }
 
             .search-button::after {
                 content: "→";
-
                 font-size: 20px;
             }
 
@@ -1222,297 +901,147 @@
             .easy-input-select,
             .easy-input-number {
                 font-size: 13px;
-
                 padding: 10px 12px;
             }
         }
     </style>
 </head>
 
-
 <body>
 
-    <!-- =========================================
-         NAVIGATIE
-    ========================================== -->
-
     <nav class="navbar">
-
         <a class="brand" href="./">
-
             <div class="brand-logo">
-                SJB
+                <img src="/logo.png" alt="SJB logo">
             </div>
 
             <div class="brand-text">
-
-                <span class="brand-name">
-                    Bijbelzoeker
-                </span>
-
-                <span class="brand-subtitle">
-                    Sint-Jan Berchmans
-                </span>
-
+                <span class="brand-name">Bijbelzoeker</span>
+                <span class="brand-subtitle">Sint-Jan Berchmans</span>
             </div>
-
         </a>
 
-
         <div class="nav-badge">
-
             <span class="nav-dot"></span>
-
             Bible.com
-
         </div>
-
     </nav>
-
-
-
-    <!-- =========================================
-         HOOFDGEDEELTE
-    ========================================== -->
 
     <main>
 
-        <!-- HERO -->
-
         <section class="hero">
-
             <div class="eyebrow">
-
                 <span class="eyebrow-icon"></span>
-
                 Zoek in de Bijbel
-
             </div>
 
-
             <h1>
-
                 Vind jouw<br>
-
                 <span>Bijbeltekst.</span>
-
             </h1>
 
-
             <p class="hero-description">
-
                 Typ een Bijbelboek en hoofdstuk in en ga meteen
                 naar de juiste passage op Bible.com.
-
             </p>
-
-
-            <!-- SEARCH -->
 
             <div class="search-wrapper">
 
-                <!-- MODE TOGGLE -->
-
                 <div class="mode-toggle">
-
-                    <button class="mode-btn active" data-mode="easy">
-                        Makkelijk
-                    </button>
-
-                    <button class="mode-btn" data-mode="manual">
-                        Handmatig
-                    </button>
-
+                    <button class="mode-btn active" data-mode="easy">Makkelijk</button>
+                    <button class="mode-btn" data-mode="manual">Handmatig</button>
                 </div>
 
-
-                <!-- MANUAL MODE FORM -->
-
-                <form
-                    class="search-box active"
-                    id="searchForm"
-                >
-
+                <form class="search-box active" id="searchForm">
                     <div class="search-icon">
-
-                        <svg
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        >
-
-                            <circle
-                                cx="11"
-                                cy="11"
-                                r="7"
-                            ></circle>
-
-                            <path
-                                d="m20 20-4-4"
-                            ></path>
-
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="7"></circle>
+                            <path d="m20 20-4-4"></path>
                         </svg>
-
                     </div>
 
+                    <input id="searchInput" type="text" autocomplete="off" spellcheck="false" placeholder="Bijv. Johannes 3:16" aria-label="Zoek een Bijbelverwijzing">
 
-                    <input
-                        id="searchInput"
-                        type="text"
-                        autocomplete="off"
-                        spellcheck="false"
-                        placeholder="Bijv. Johannes 3:16"
-                        aria-label="Zoek een Bijbelverwijzing"
-                    >
-
-
-                    <button
-                        class="search-button"
-                        type="submit"
-                    >
-
+                    <button class="search-button" type="submit">
                         Zoeken
-
                     </button>
-
                 </form>
 
-
-                <!-- EASY INPUT MODE FORM -->
-
                 <div class="easy-input-container">
-
                     <form class="easy-input-form" id="easyInputForm">
 
-                        <!-- BOOK SELECT -->
                         <div class="easy-input-group">
                             <label class="easy-input-label">Bijbelboek</label>
+
                             <div class="easy-input-dropdown">
                                 <select class="easy-input-select" id="bookSelect" aria-label="Kies een Bijbelboek">
                                     <option value="">Kies boek...</option>
                                 </select>
+
                                 <div class="easy-select-search">
                                     <input type="text" class="easy-book-search" placeholder="Zoek boek...">
                                     <div class="easy-select-list easy-book-list"></div>
                                 </div>
                             </div>
+
                             <div class="easy-input-desc">Bijv. Johannes, Paulus</div>
                         </div>
 
-
-                        <!-- CHAPTER INPUT -->
                         <div class="easy-input-group">
                             <label class="easy-input-label">Hoofdstuk</label>
+
                             <input type="number" class="easy-input-number" id="chapterInput" min="1" placeholder="Bijv. 3" aria-label="Voer het hoofdstuknummer in">
+
                             <div class="easy-input-desc">Alleen getal (bijv. 3)</div>
                         </div>
 
-
-                        <!-- VERSE INPUT -->
                         <div class="easy-input-group">
                             <label class="easy-input-label">Vers (optioneel)</label>
+
                             <input type="text" class="easy-input-number" id="verseInput" placeholder="Bijv. 16 of 1-20" aria-label="Voer versnummer in (optioneel)">
+
                             <div class="easy-input-desc">Één vers of bereik (1-20)</div>
                         </div>
 
-
-                        <!-- SEARCH BUTTON -->
                         <button class="easy-input-button" type="submit">
                             Zoeken
                         </button>
 
                     </form>
-
                 </div>
 
-
-                <!-- VOORBEELDEN (MANUAL MODE) -->
-
                 <div class="search-hints active">
-
-                    <button
-                        class="hint"
-                        data-search="Johannes 3:16"
-                    >
-                        Johannes 3:16
-                    </button>
-
-
-                    <button
-                        class="hint"
-                        data-search="Marcus 5:1-20"
-                    >
-                        Marcus 5:1-20
-                    </button>
-
-
-                    <button
-                        class="hint"
-                        data-search="Psalm 23"
-                    >
-                        Psalm 23
-                    </button>
-
-
-                    <button
-                        class="hint"
-                        data-search="Genesis 1:1"
-                    >
-                        Genesis 1:1
-                    </button>
-
+                    <button class="hint" data-search="Johannes 3:16">Johannes 3:16</button>
+                    <button class="hint" data-search="Marcus 5:1-20">Marcus 5:1-20</button>
+                    <button class="hint" data-search="Psalm 23">Psalm 23</button>
+                    <button class="hint" data-search="Genesis 1:1">Genesis 1:1</button>
                 </div>
 
             </div>
-
         </section>
-
-
-
-        <!-- =========================================
-             RESULTATEN
-        ========================================== -->
 
         <section class="results-section">
 
             <div class="results-header" id="resultsHeader">
-
                 <div>
-
                     <h2 class="results-title">Resultaten</h2>
-
                     <span class="results-count" id="resultsCount"></span>
-
                 </div>
-
             </div>
 
             <div class="empty-state" id="emptyState">
-
-                <div class="empty-icon">
-                    📖
-                </div>
-
+                <div class="empty-icon">📖</div>
                 <strong>Geen resultaten gevonden</strong>
-
                 <p>Controleer uw zoekopdracht en probeer opnieuw.</p>
-
             </div>
 
             <div id="results"></div>
 
         </section>
 
-
-        <!-- INFO CARDS -->
-
         <section class="info-grid">
 
             <div class="info-card">
-
                 <div class="info-number">1</div>
 
                 <h2>Zoek snel</h2>
@@ -1521,11 +1050,9 @@
                     Typ eenvoudig de naam van een Bijbelboek in
                     en het hoofdstuk. Klaar!
                 </p>
-
             </div>
 
             <div class="info-card">
-
                 <div class="info-number">2</div>
 
                 <h2>Direct naar Bible.com</h2>
@@ -1534,11 +1061,9 @@
                     Je bent direct op Bible.com waar je de
                     volledige tekst kunt lezen.
                 </p>
-
             </div>
 
             <div class="info-card">
-
                 <div class="info-number">3</div>
 
                 <h2>Alles wat je nodig hebt</h2>
@@ -1547,17 +1072,11 @@
                     Van Genesis tot Openbaring. Alle boeken
                     van de Bijbel beschikbaar.
                 </p>
-
             </div>
 
         </section>
 
     </main>
-
-
-    <!-- =========================================
-         FOOTER
-    ========================================== -->
 
     <footer>
 
@@ -1577,17 +1096,34 @@
     </footer>
 
     <div class="credits-overlay" id="creditsOverlay" aria-hidden="true">
-        <div class="credits-card" role="dialog" aria-modal="true" aria-labelledby="creditsTitle">
-            <div class="credits-icon">SJB</div>
-            <h2 id="creditsTitle">Credits</h2>
-            <div class="credits-list">
-                <div class="credit-person"><strong>Uitvinder en Ontwikkelaar:</strong> Thijs Vanden Broeck</div>
-                <div class="credit-person"><strong>Ontwikkelaar:</strong> Pim Willekens</div>
-            </div>
-            <button class="credits-close" id="creditsClose" type="button">Sluiten</button>
-        </div>
-    </div>
 
+        <div class="credits-card" role="dialog" aria-modal="true" aria-labelledby="creditsTitle">
+
+            <div class="credits-icon">SJB</div>
+
+            <h2 id="creditsTitle">Credits</h2>
+
+            <div class="credits-list">
+
+                <div class="credit-person">
+                    <strong>Uitvinder en Ontwikkelaar:</strong>
+                    Thijs Vanden Broeck
+                </div>
+
+                <div class="credit-person">
+                    <strong>Ontwikkelaar:</strong>
+                    Pim Willekens
+                </div>
+
+            </div>
+
+            <button class="credits-close" id="creditsClose" type="button">
+                Sluiten
+            </button>
+
+        </div>
+
+    </div>
 
 <script>
     const creditsButton = document.getElementById('creditsButton');
@@ -1615,9 +1151,6 @@
         if (event.key === 'Escape') closeCredits();
     });
 
-    // =========================================
-    // BIJBELBOEKEN DATA
-    // =========================================
     const BIBLE_BOOKS = {
         'GEN': { abbr: 'Gen', chapters: 50, name: 'Genesis' },
         'EXO': { abbr: 'Exo', chapters: 40, name: 'Exodus' },
@@ -1687,9 +1220,6 @@
         'REV': { abbr: 'Rev', chapters: 22, name: 'Openbaring' }
     };
 
-    // =========================================
-    // MODE MANAGEMENT
-    // =========================================
     const modeBtns = document.querySelectorAll('.mode-btn');
     const searchBox = document.querySelector('.search-box');
     const searchHints = document.querySelector('.search-hints');
@@ -1718,14 +1248,10 @@
     });
 
     document.addEventListener('DOMContentLoaded', () => {
-        // Zorg dat de visuele stand bij laden klopt met de HTML 'active' knop
         const activeMode = document.querySelector('.mode-btn.active')?.dataset.mode || 'easy';
         switchMode(activeMode);
     });
 
-    // =========================================
-    // EASY INPUT INITIALIZATION
-    // =========================================
     function initializeEasyInput() {
         const bookSelect = document.getElementById('bookSelect');
 
@@ -1733,15 +1259,12 @@
             Object.entries(BIBLE_BOOKS).forEach(([code, data]) => {
                 const option = document.createElement('option');
                 option.value = code;
-                option.textContent = data.name; // Gebruik volledige naam i.p.v. code
+                option.textContent = data.name;
                 bookSelect.appendChild(option);
             });
         }
     }
 
-    // =========================================
-    // SEARCH LOGIC
-    // =========================================
     const searchForm = document.getElementById('searchForm');
     const searchInput = document.getElementById('searchInput');
     const easyInputForm = document.getElementById('easyInputForm');
@@ -1751,12 +1274,15 @@
 
     searchForm.addEventListener('submit', (e) => {
         e.preventDefault();
+
         const query = searchInput.value.trim();
+
         if (query) performSearch(query);
     });
 
     easyInputForm.addEventListener('submit', (e) => {
         e.preventDefault();
+
         const bookCode = document.getElementById('bookSelect').value;
         const chapter = document.getElementById('chapterInput').value;
         const verse = document.getElementById('verseInput').value;
@@ -1767,7 +1293,9 @@
         }
 
         const bookData = BIBLE_BOOKS[bookCode];
+
         let query = `${bookData.name} ${chapter}`;
+
         if (verse) query += `:${verse}`;
 
         performSearch(query);
@@ -1776,33 +1304,30 @@
     document.querySelectorAll('.hint').forEach(hint => {
         hint.addEventListener('click', () => {
             const query = hint.dataset.search;
+
             searchInput.value = query;
+
             performSearch(query);
         });
     });
 
     function performSearch(query) {
         const results = searchBibleBooks(query);
+
         displayResults(results);
     }
 
-    // =========================================
-    // SEARCH AND RESULTS
-    // =========================================
     function searchBibleBooks(query) {
         const results = [];
 
         Object.entries(BIBLE_BOOKS).forEach(([code, data]) => {
-            // Zoek op de volledige naam of op de 3-lettercode
             const bookRegex = new RegExp(`(?:^|\\b)${data.name}|${code}(?:\\b|$)`, 'i');
-            
+
             if (bookRegex.test(query)) {
-                // Verwijder de boeknaam uit de zoekopdracht om nummerfouten te voorkomen (zoals bij '1 Johannes')
                 const remainingQuery = query.replace(bookRegex, '').trim();
-                
-                // Match het hoofdstuk en optioneel de verzen
+
                 const chapterMatch = remainingQuery.match(/(\d+)(?::(\d+(?:-\d+)?)?)?/);
-                
+
                 if (chapterMatch) {
                     const chapter = parseInt(chapterMatch[1], 10);
                     const verses = chapterMatch[2] || null;
@@ -1824,6 +1349,7 @@
 
     function displayResults(results) {
         resultsDiv.innerHTML = '';
+
         resultsHeader.classList.remove('visible');
         emptyState.classList.remove('visible');
 
@@ -1833,10 +1359,13 @@
         }
 
         resultsHeader.classList.add('visible');
-        document.getElementById('resultsCount').textContent = `${results.length} resultaat${results.length !== 1 ? 'en' : ''}`;
+
+        document.getElementById('resultsCount').textContent =
+            `${results.length} resultaat${results.length !== 1 ? 'en' : ''}`;
 
         results.forEach(result => {
             const card = createResultCard(result);
+
             resultsDiv.appendChild(card);
         });
     }
@@ -1845,12 +1374,15 @@
         const { bookName, chapter, verses, abbr } = result;
 
         let url = `https://www.bible.com/nl/bible/75/${abbr}.${chapter}`;
+
         if (verses) {
             const versesPart = verses.replace('-', '%2D');
+
             url += `.${versesPart}`;
         }
 
         const card = document.createElement('a');
+
         card.href = url;
         card.target = '_blank';
         card.rel = 'noopener noreferrer';
@@ -1864,11 +1396,15 @@
                         <path d="M3 1h18v2H3V1zm0 20h18v2H3v-2z"/>
                     </svg>
                 </div>
+
                 <div>
                     <h3 class="result-book">${bookName}</h3>
-                    <p class="result-reference">Hoofdstuk ${chapter}${verses ? `, Vers ${verses}` : ''}</p>
+                    <p class="result-reference">
+                        Hoofdstuk ${chapter}${verses ? `, Vers ${verses}` : ''}
+                    </p>
                 </div>
             </div>
+
             <div class="result-arrow">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -1882,3 +1418,18 @@
 
 </body>
 </html>
+```
+
+**Important:** this expects the logo to be called `logo.png` and to be in the **root of your `main` branch**, next to `index.html`.
+
+If your actual file is, for example, `logo.webp`, change just:
+
+```html
+<img src="/logo.png" alt="SJB logo">
+```
+
+to:
+
+```html
+<img src="/logo.webp" alt="SJB logo">
+```
