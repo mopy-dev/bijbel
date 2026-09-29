@@ -987,6 +987,118 @@
             font-size: 12px;
         }
 
+        .credits-button {
+            padding: 0;
+            border: 0;
+            background: transparent;
+            color: var(--muted);
+            font-family: inherit;
+            font-size: 12px;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .credits-button:hover {
+            color: var(--blue);
+        }
+
+        .credits-overlay {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: rgba(13, 41, 75, 0.18);
+            backdrop-filter: blur(7px);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.2s ease, visibility 0.2s ease;
+            z-index: 100;
+        }
+
+        .credits-overlay.active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        .credits-card {
+            width: min(390px, 100%);
+            padding: 28px;
+            background: rgba(255, 255, 255, 0.96);
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            box-shadow: 0 25px 80px rgba(21, 60, 107, 0.18);
+            text-align: center;
+            transform: translateY(8px) scale(0.98);
+            transition: transform 0.2s ease;
+        }
+
+        .credits-overlay.active .credits-card {
+            transform: translateY(0) scale(1);
+        }
+
+        .credits-icon {
+            width: 42px;
+            height: 42px;
+            margin: 0 auto 15px;
+            display: grid;
+            place-items: center;
+            border-radius: 13px;
+            background: var(--blue-light);
+            color: var(--blue);
+            font-family: "Space Grotesk", sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .credits-card h2 {
+            margin: 0 0 18px;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 21px;
+            color: var(--blue-dark);
+        }
+
+        .credits-list {
+            display: grid;
+            gap: 9px;
+        }
+
+        .credit-person {
+            padding: 12px 14px;
+            border: 1px solid var(--border);
+            border-radius: 13px;
+            background: #f8fafc;
+            color: var(--text);
+            font-size: 13px;
+            line-height: 1.45;
+        }
+
+        .credit-person strong {
+            color: var(--blue);
+        }
+
+        .credits-close {
+            margin-top: 18px;
+            padding: 9px 15px;
+            border: 0;
+            border-radius: 11px;
+            background: var(--blue);
+            color: white;
+            font-family: inherit;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .credits-close:hover {
+            background: var(--blue-dark);
+            transform: translateY(-1px);
+        }
+
         .bible-link {
             color: var(--blue);
 
@@ -1455,16 +1567,53 @@
                 <a class="bible-link" href="https://www.bible.com" target="_blank">Bible.com</a>
             </p>
 
-            <p>
-                Gemaakt door <strong>Pim Willekens</strong> en <strong>Thijs van het broekje</strong>
-            </p>
+            <button class="credits-button" id="creditsButton" type="button" aria-label="Credits openen">
+                Credits
+            </button>
 
         </div>
 
     </footer>
 
+    <div class="credits-overlay" id="creditsOverlay" aria-hidden="true">
+        <div class="credits-card" role="dialog" aria-modal="true" aria-labelledby="creditsTitle">
+            <div class="credits-icon">SJB</div>
+            <h2 id="creditsTitle">Credits</h2>
+            <div class="credits-list">
+                <div class="credit-person"><strong>Uitvinder en baas 1:</strong> Thijs Vanden Broeck</div>
+                <div class="credit-person"><strong>Baas 2:</strong> Pim Willekens</div>
+            </div>
+            <button class="credits-close" id="creditsClose" type="button">Sluiten</button>
+        </div>
+    </div>
+
 
 <script>
+    const creditsButton = document.getElementById('creditsButton');
+    const creditsOverlay = document.getElementById('creditsOverlay');
+    const creditsClose = document.getElementById('creditsClose');
+
+    function openCredits() {
+        creditsOverlay.classList.add('active');
+        creditsOverlay.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeCredits() {
+        creditsOverlay.classList.remove('active');
+        creditsOverlay.setAttribute('aria-hidden', 'true');
+    }
+
+    creditsButton.addEventListener('click', openCredits);
+    creditsClose.addEventListener('click', closeCredits);
+
+    creditsOverlay.addEventListener('click', (event) => {
+        if (event.target === creditsOverlay) closeCredits();
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') closeCredits();
+    });
+
     // =========================================
     // BIJBELBOEKEN DATA
     // =========================================
