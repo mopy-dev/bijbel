@@ -1694,7 +1694,7 @@
     function createResultCard(result) {
         const { bookName, chapter, verses, abbr } = result;
 
-        let url = `https://www.bible.com/nl/bible/111/${abbr}.${chapter}`;
+        let url = `https://www.bible.com/nl/bible/75/${abbr}.${chapter}`;
         if (verses) {
             const versesPart = verses.replace('-', '%2D');
             url += `.${versesPart}`;
